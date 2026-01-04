@@ -1,0 +1,258 @@
+@font-face {
+    font-family: 'Pogonia';
+    src: url('pogonia-bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f4f8f9;
+    font-family: 'Pogonia', sans-serif;
+
+}
+
+/* 1. Scroll Track */
+.scroll-track {
+    height: 250vh;
+    width: 100%;
+    pointer-events: none;
+}
+
+/* 2. Sticky Container */
+.sticky-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. Typography */
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    z-index: 1;
+    pointer-events: none;
+    /* transition: top 0.1s linear; Removed for smooth scroll sync */
+}
+
+.text-overlay img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 180px;
+    /* Approximate height to match previous text size */
+}
+
+.txt-top {
+    display: block;
+}
+
+.txt-bottom {
+    display: block;
+}
+
+/* 4. Slider / Carrier Container */
+.slider-container {
+    position: absolute;
+    bottom: 20vh;
+    /* Updated from user edit */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 800px;
+    height: 750px;
+    z-index: 10;
+    user-select: none;
+}
+
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-wrapper .bg-img {
+    width: 800px;
+    /* Fixed width to match container */
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.carrier {
+    width: 100%;
+    /* Initial state: 50% visible */
+    z-index: 3;
+    /* Top layer */
+    background-color: transparent;
+}
+
+.txt-layer {
+    z-index: 2;
+    /* Middle layer */
+}
+
+.x-ray {
+    z-index: 1;
+    /* Bottom layer */
+}
+
+/* 5. Slider Handle - Reverted Style */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 5. Slider Handle - Reverted Style */
+.slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 94%;
+    /* Initial state: Center */
+    width: 40px;
+    /* Wider touch area */
+    transform: translateX(-50%);
+    z-index: 20;
+    cursor: ew-resize;
+    opacity: 1;
+    /* Always visible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.handle-line {
+    width: 3px;
+    height: 100%;
+    background-color: #ffffff;
+    /* Black line */
+    box-shadow: none;
+}
+
+.handle-circle {
+    position: absolute;
+    bottom: -20px;
+    /* Bottom position */
+    top: auto;
+    /* Reset top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    /* Black circle */
+    border-radius: 50%;
+    border: 2px solid #0d3b2e;
+    /* White border for contrast */
+    box-shadow: none;
+}
+
+/* 내부 글자 이미지 (Branding, CSS...) 스타일 */
+.inner-text-img {
+    position: absolute;
+    top: 71%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+
+    /* [수정 핵심] !important를 붙여서 강제로 크기를 줄입니다 */
+    width: 52% !important;
+    /* 800px 강제 적용을 무시하고 50%로 설정 */
+
+    height: auto !important;
+    /* 높이도 비율에 맞게 자동 조절 */
+
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* X-Ray Items Styling */
+.xray-item {
+    position: absolute;
+    width: 18%;
+    /* Estimated width, adjustable */
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    /* Above txtall */
+    pointer-events: auto;
+    mix-blend-mode: multiply;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.xray-item:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: brightness(1.15);
+    cursor: pointer;
+}
+
+/* Individual Item Positions - Placeholders */
+.item-locker {
+    top: 80%;
+    left: 77%;
+    width: 27%;
+}
+
+.item-bento {
+    top: 78%;
+    left: 49%;
+    width: 33%;
+}
+
+.item-camera {
+    top: 43%;
+    left: 25%;
+    width: 22%;
+}
+
+.item-pencil {
+    top: 50%;
+    left: 50%;
+    width: 28%;
+}
+
+.item-vase {
+    top: 70%;
+    left: 23%;
+    width: 20%;
+}
+
+.item-slipper {
+    top: 50%;
+    left: 75%;
+    width: 28%;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .text-overlay h1 {
+        font-size: 4rem;
+    }
+
+    .slider-container {
+        width: 90vw;
+        height: 67.5vw;
+    }
+
+    .image-wrapper img {
+        width: 90vw;
+    }
+}
