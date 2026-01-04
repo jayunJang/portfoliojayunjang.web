@@ -94,5 +94,30 @@ document.addEventListener('DOMContentLoaded', () => {
         carrierWrapper.style.width = `${offsetX}px`;
     }
 
+
+    // 3. Hover Text Reveal Logic
+    const hoverMap = [
+        { itemClass: '.item-locker', textId: 'txt-locker' },
+        { itemClass: '.item-bento', textId: 'txt-bento' },
+        { itemClass: '.item-camera', textId: 'txt-camera' },
+        { itemClass: '.item-pencil', textId: 'txt-pencil' },
+        { itemClass: '.item-vase', textId: 'txt-vase' },
+        { itemClass: '.item-slipper', textId: 'txt-slipper' }
+    ];
+
+    hoverMap.forEach(mapping => {
+        const item = document.querySelector(mapping.itemClass);
+        const textImg = document.getElementById(mapping.textId);
+
+        if (item && textImg) {
+            item.addEventListener('mouseenter', () => {
+                textImg.style.opacity = '1';
+            });
+            item.addEventListener('mouseleave', () => {
+                textImg.style.opacity = '0';
+            });
+        }
+    });
+
     initSlider();
 });

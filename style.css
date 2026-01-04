@@ -200,9 +200,60 @@ html {
 
 .xray-item:hover {
     transform: translate(-50%, -50%) scale(1.1);
-    filter: brightness(1.15);
+    filter: brightness(1.3);
     cursor: pointer;
+    opacity: 0.7;
+    z-index: 20;
+    /* Ensure it stays on top of text */
 }
+
+/* Centered Text Images */
+.center-txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15% !important;
+    height: auto !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+    /* Above hovered item (20) */
+    pointer-events: none;
+}
+
+#txt-locker {
+    top: 80%;
+    left: 77%;
+    width: 10% !important;
+    /* Kept user's value */
+}
+
+#txt-bento {
+    top: 78%;
+    left: 49%;
+}
+
+#txt-camera {
+    top: 43%;
+    left: 25%;
+}
+
+#txt-pencil {
+    top: 50%;
+    left: 50%;
+}
+
+#txt-vase {
+    top: 70%;
+    left: 23%;
+}
+
+#txt-slipper {
+    top: 50%;
+    left: 75%;
+}
+
 
 /* Individual Item Positions - Placeholders */
 .item-locker {
